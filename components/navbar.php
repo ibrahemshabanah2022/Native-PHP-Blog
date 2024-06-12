@@ -42,20 +42,20 @@ if (isset($_GET['query'])) {
             <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
                 <li class="nav-item active">
-                    <a href="../pages/blogs.php" class="nav-link">Blog</a>
+                    <a href="../pages/blogs.php" class="btn outline-success my-2 my-sm-0">Blog</a>
                 </li>
 
 
-                <li class="nav-item active"><a class="nav-link" href="?logout=true">Logout</a></li>
-                <li class="nav-item active"><a class="nav-link" href="../pages/profile.php">Profile Setting</a></li>
-                <li class="nav-item active"><a class="nav-link" href="../pages/add_post.php">Add Post</a></li>
-                <li class="nav-item active"><a class="nav-link" href="../pages/myPosts.php">My Posts</a></li>
+                <li class="nav-item active"><a class="btn outline-success my-2 my-sm-0" href="?logout=true">Logout</a></li>
+                <li class="nav-item active"><a class="btn outline-success my-2 my-sm-0" href="../pages/profile.php">Profile Setting</a></li>
+                <li class="nav-item active"><a class="btn outline-success my-2 my-sm-0" href="../pages/add_post.php">Add Post</a></li>
+                <li class="nav-item active"><a class="btn outline-success my-2 my-sm-0" href="../pages/myPosts.php">My Posts</a></li>
 
 
             <?php else : ?>
-                <li class="nav-item active"><a href="../pages/blogs.php" class="nav-link">Blog</a></li>
-                <li class="nav-item active"><a href="../pages/login.php" class="nav-link">Login</a></li>
-                <li class="nav-item active"><a href="../pages/register.php" class="nav-link">Register</a></li>
+                <li class="nav-item active"><a href="../pages/blogs.php" class="btn outline-success my-2 my-sm-0">Blog</a></li>
+                <li class="nav-item active"><a href="../pages/login.php" class="btn outline-success my-2 my-sm-0">Login</a></li>
+                <li class="nav-item active"><a href="../pages/register.php" class="btn outline-success my-2 my-sm-0">Register</a></li>
             <?php endif; ?>
         </ul>
         <form class="form-inline my-2 my-lg-0" action="../pages/search_results.php" method="GET">

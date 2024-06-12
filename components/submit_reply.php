@@ -43,7 +43,7 @@ try {
 
     // Execute the query
     if ($stmt->execute()) {
-        echo "Reply posted successfully!";
+        header("Location: http://localhost/Native%20PHP%20Blog/pages/post_detail.php?id=" . $post_id);
     } else {
         echo "Error executing query.";
     }

@@ -76,22 +76,44 @@ if (isset($_GET['id'])) {
             echo '<h4>' . htmlspecialchars($comment->username) . '</h4>';
             echo '<p>' . htmlspecialchars($comment->content) . '</p>';
             echo '<div class="text-info">' . date('F j, Y, g:i a', strtotime($comment->created_at)) . '</div>';
-            echo '<div class="dropdown">';
-            echo '<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reply</button>';
+            echo '<div class="btn-group" role="group">';
+
+            // Delete Button
+            echo '<form class="delete-comment-form" action="../components/delete_comment.php" method="post">';
+            echo '<input type="hidden" name="comment_id" value="' . htmlspecialchars($comment->id) . '">';
+            echo '<button type="submit" class="btn btn-danger">Delete</button>';
+            echo '</form>';
+
+            // Reply Button
+            echo '<button class="btn btn-success  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reply</button>';
             echo '<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">';
             echo '<form action="../components/submit_reply.php" method="post">';
             echo '<input type="hidden" name="post_id" value="' . htmlspecialchars($comment->post_id) . '">';
             echo '<input type="hidden" name="parent_id" value="' . htmlspecialchars($comment->id) . '">';
             echo '<textarea name="content" required placeholder="Write your reply..."></textarea>';
-            echo '<button type="submit">Submit Reply</button>';
+            echo '<button class="btn btn-primary" type="submit">Submit Reply</button>';
             echo '</form>';
             echo '</div>';
+            // Dropdown button to reveal update form
+            echo '<div class="dropdown">';
+            echo '<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton-' . $comment->id . '" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Update</button>';
+            echo '<div class="dropdown-menu" aria-labelledby="dropdownMenuButton-' . $comment->id . '">';
+
+            // Update form
+            echo '<form class="update-comment-form" action="../components/update_comment.php" method="post">';
+            echo '<input type="hidden" name="comment_id" value="' . htmlspecialchars($comment->id) . '">';
+            echo '<textarea name="content" required placeholder="Write your updated comment...">' . htmlspecialchars($comment->content) . '</textarea>';
+            echo '<button type="submit" class="btn btn-primary">Save</button>';
+            echo '</form>';
+
             echo '</div>';
+            echo '</div>';
+            echo '</div>'; // End of btn-group
             if (!empty($comment->replies)) {
                 renderComments($comment->replies);
             }
-            echo '</div>';
-            echo '</div>';
+            echo '</div>'; // End of card-body
+            echo '</div>'; // End of card
             echo '</li>';
         }
         echo '</ul>';
@@ -399,6 +421,21 @@ if (isset($_GET['id'])) {
         });
     </script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.update-comment-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const commentId = this.getAttribute('data-comment-id');
+                    const updateForm = document.querySelector('.update-comment-form[data-comment-id="' + commentId + '"]');
+
+                    if (updateForm) {
+                        // Toggle visibility of the update form
+                        updateForm.classList.toggle('d-none');
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
 
