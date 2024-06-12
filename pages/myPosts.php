@@ -86,20 +86,39 @@ try {
 
 
                 <?php foreach ($posts as $post) : ?>
+                    <!-- Inside the foreach loop where you display posts -->
                     <div class="card m-4" style="width: 18rem;">
+                        <!-- Post image -->
                         <?php if ($post->image) : ?>
-                            <img class="card-img-top " src="<?php echo htmlspecialchars($post->image); ?>" alt="Post image" style="  max-width: 100%;height: auto;">
-
+                            <img style="width: 100%; height: 200px; object-fit: cover;" class="card-img-top" src="<?php echo $post->image; ?>" alt="Post image" style="max-width: 100%; height: auto;">
                         <?php else : ?>
                             <img class="card-img-top" src="default.jpg" alt="Default image">
                         <?php endif; ?>
+
+                        <!-- Card body -->
                         <div class="card-body">
-                            <h5 class="card-title"><?php echo htmlspecialchars($post->title); ?></h5>
-                            <p class="card-text"><?php echo $post->created_at; ?></p>
+                            <a href="post_detail.php?id=<?php echo $post->id; ?>">
+                                <h4 style="color: black;"><?php echo htmlspecialchars($post->title); ?></h4>
+                            </a>
+
+                            <p class="p-3 mb-2  text-warning"><?php echo $post->created_at; ?></p>
                             <p class="card-text"><?php echo substr($post->content, 0, 150); ?>...</p>
-                            <a href="post_detail.php?id=<?php echo $post->id; ?>" class="btn btn-primary">Read More</a>
+                        </div>
+
+                        <!-- Card footer -->
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-start">
+                                <form method="POST" action="../components/delete_post.php" class="mr-2">
+                                    <input type="hidden" name="post_id" value="<?php echo $post->id; ?>">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                                <a href="../components/edit_post.php?id=<?php echo $post->id; ?>" class="btn btn-success">Edit</a>
+                            </div>
                         </div>
                     </div>
+
+
+
                 <?php endforeach; ?>
             </div>
 
