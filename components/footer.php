@@ -1,4 +1,4 @@
-<footer class="site-footer bg-light">
+<footer class="site-footer bg-primary">
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
@@ -29,20 +29,20 @@
                     <div class="col-lg-6 ml-auto">
                         <h2 class="footer-heading mb-4">Quick Links</h2>
                         <ul class="list-unstyled">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Testimonials</a></li>
-                            <li><a href="#">Terms of Service</a></li>
-                            <li><a href="#">Privacy</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a class="btn outline-success my-2 my-sm-0" href="#">About Us</a></li>
+                            <li><a class="btn outline-success my-2 my-sm-0" href="#">Testimonials</a></li>
+                            <li><a class="btn outline-success my-2 my-sm-0" href="#">Terms of Service</a></li>
+                            <li><a class="btn outline-success my-2 my-sm-0" href="#">Privacy</a></li>
+                            <li><a class="btn outline-success my-2 my-sm-0" href="#">Contact Us</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
                         <h2 class="footer-heading mb-4">Newsletter</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt odio iure animi ullam quam, deleniti rem!</p>
-                        <form action="#" class="d-flex" class="subscribe">
+                        <!-- <form action="#" class="d-flex" class="subscribe">
                             <input type="text" class="form-control mr-3" placeholder="Email">
                             <input type="submit" value="Send" class="btn btn-primary">
-                        </form>
+                        </form> -->
                     </div>
 
                 </div>
@@ -55,7 +55,7 @@
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         Copyright &copy;<script>
                             document.write(new Date().getFullYear());
-                        </script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        </script> All rights reserved
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>
