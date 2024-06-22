@@ -74,7 +74,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <?php if ($post['image']) : ?>
                             <img style="width: 100%; height: 200px; object-fit: cover;" class="card-img-top" src="<?php echo htmlspecialchars($post['image']); ?>" alt="Post image">
                         <?php else : ?>
-                            <img style="width: 100%; height: 200px; object-fit: cover;" class="card-img-top" src="default.jpg" alt="Default image">
+                            <!-- <img style="width: 100%; height: 200px; object-fit: cover;" class="card-img-top" src="default.jpg" alt="Default image"> -->
                         <?php endif; ?>
 
                         <!-- Card body -->

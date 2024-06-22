@@ -49,15 +49,16 @@ if (isset($_GET['query'])) {
                     <?php foreach ($search_results as $post) : ?>
                         <div class="card m-4" style="width: 18rem;">
                             <?php if ($post->image) : ?>
-                                <img class="card-img-top" src="<?php echo htmlspecialchars($post->image); ?>" alt="Post image">
+                                <img class="card-img-top" src="<?php echo htmlspecialchars($post->image); ?>" alt="Post image" style="width: 100%; height: 200px; object-fit: cover;">
                             <?php else : ?>
-                                <img class="card-img-top" src="default.jpg" alt="Default image">
+                                <!-- <img class="card-img-top" src="default.jpg" alt="Default image"> -->
                             <?php endif; ?>
                             <div class="card-body">
-                                <h5 class="card-title"><?php echo htmlspecialchars($post->title); ?></h5>
+                                <a href="post_detail.php?id=<?php echo $post->id; ?>">
+                                    <h5 class="card-title"><?php echo htmlspecialchars($post->title); ?></h5>
+                                </a>
                                 <p class="card-text"><?php echo $post->created_at; ?></p>
                                 <p class="card-text"><?php echo substr($post->content, 0, 150); ?>...</p>
-                                <a href="post_detail.php?id=<?php echo $post->id; ?>" class="btn btn-primary">Read More</a>
                             </div>
                         </div>
                     <?php endforeach; ?>

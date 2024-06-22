@@ -91,7 +91,7 @@ try {
                             <?php if ($post->image) : ?>
                                 <img style="width: 100%; height: 200px; object-fit: cover;" class="card-img-top" src="<?php echo $post->image; ?>" alt="Post image" style="max-width: 100%; height: auto;">
                             <?php else : ?>
-                                <img class="card-img-top" src="default.jpg" alt="Default image">
+                                <!-- <img class="card-img-top" src="default.jpg" alt="Default image"> -->
                             <?php endif; ?>
 
                             <!-- Card body -->

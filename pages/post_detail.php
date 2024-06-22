@@ -68,6 +68,8 @@ if (isset($_GET['id'])) {
     // Function to render comments and replies recursively
     function renderComments($comments)
     {
+        $userId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+
         echo '<ul>';
         foreach ($comments as $comment) {
             echo '<li>';
@@ -79,11 +81,12 @@ if (isset($_GET['id'])) {
             echo '<div class="btn-group" role="group">';
 
             // Delete Button
-            echo '<form class="delete-comment-form" action="../components/delete_comment.php" method="post">';
-            echo '<input type="hidden" name="comment_id" value="' . htmlspecialchars($comment->id) . '">';
-            echo '<button type="submit" class="btn btn-danger">Delete</button>';
-            echo '</form>';
-
+            if ($comment->user_id == $userId) {
+                echo '<form class="delete-comment-form" action="../components/delete_comment.php" method="post">';
+                echo '<input type="hidden" name="comment_id" value="' . htmlspecialchars($comment->id) . '">';
+                echo '<button type="submit" class="btn btn-danger">Delete</button>';
+                echo '</form>';
+            }
             // Reply Button
             echo '<button class="btn btn-success  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reply</button>';
             echo '<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">';
